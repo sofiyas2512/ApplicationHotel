@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Hotel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        form {
+            width: 38%;
+            margin: 20px auto; /* Center the form horizontally */
+            background-color: #ffffff; /* White background color for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #007acc; /* Dark blue color for labels */
+        }
+
+        input, select {
+            width:90%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #007acc; /* Dark blue color for input border */
+            border-radius: 5px;
+        }
+
+        button, a {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #ffffff; /* White text color for buttons */
+        }
+
+        button {
+            background-color: #007acc; /* Dark blue color for submit button */
+        }
+
+        a {
+            background-color: #005a91; /* Slightly darker blue color for back button */
+        }
+
+        button:hover, a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/hotels}">
+<!--        <div>-->
+<!--            <label for="id_hotel">Hotel Id</label>-->
+<!--            <input type="text" id="id_hotel" name="id_hotel" required>-->
+<!--        </div>-->
+        <div>
+            <label for="hotelName">Hotel Name</label>
+            <input type="text" id="hotelName" name="hotelName" required>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div>
+            <label for="city">City</label>
+            <select id="city" name="cityId" required>
+                <option th:each="city : ${cities}"
+                        th:value="${city.idCity}"
+                        th:text="${city.idCity}"></option>
+            </select>
+        </div>
+        <button id="submit" type="submit">Submit</button>
+        <a id="back" href="/hotels" type="button" class="btn btn-primary">Back to hotels</a>
+    </form>
+
+
+
+</body>
+</html>

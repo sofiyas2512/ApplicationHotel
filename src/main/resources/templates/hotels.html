@@ -1,0 +1,113 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Hotel List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Hotel List</h1>-->
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Hotel Name</th>-->
+<!--        <th>Address</th>-->
+<!--        <th>City Name</th>-->
+<!--        <th>Room Type</th>-->
+<!--        <th>Price</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="hotel : ${hotelsList}">-->
+<!--        <td th:text="${hotel.hotel_name}"></td>-->
+<!--        <td th:text="${hotel.address}"></td>-->
+<!--        <td th:text="${hotel.city_name}"></td>-->
+<!--        <td th:text="${hotel.room_type}"></td>-->
+<!--        <td th:text="${hotel.price}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<a href="/cities">View Cities</a>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotel List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+            text-align: left; /* Align text in the table to the left */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: dodgerblue; /* Green background color for table header */
+            color: white;
+        }
+
+        a {
+            display: inline-block; /* Display buttons inline */
+            margin-top: 10px;
+            padding: 8px 16px; /* Smaller padding for buttons */
+            background-color: blue; /* Green background color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px; /* Smaller font size for buttons */
+        }
+
+        a:hover {
+            background-color: lightblue; /* Darker green background color on hover */
+        }
+    </style>
+</head>
+<body>
+<h1>Hotel List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Hotel Name</th>
+        <th>City Name</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="hotel : ${hotelSummaryList}">
+        <td th:text="${hotel.hotel_name}"></td>
+        <td th:text="${hotel.city_name}"></td>
+        <td>
+            <a th:href="@{'/hotelsinfo/' + ${hotel.hotel_id}}">Details</a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/cities">View Cities</a>
+<br>
+<a href="/availability">Check Availability at the moment</a>
+<br>
+<a href="/guests">Guest Reservations that used this app</a>
+<br>
+<a href="/reservations/add">Make a reservation</a>
+<br>
+<a href="/hotels/add">Add new Hotel</a>
+
+</body>
+</html>

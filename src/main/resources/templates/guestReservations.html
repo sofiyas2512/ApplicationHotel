@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Reservations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007acc; /* Dark blue color for table header */
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007acc; /* Dark blue color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Guest Reservations</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Passport Number</th>
+        <th>Number of People</th>
+        <th>Hotel Name</th>
+        <th>Bill ID</th>
+        <th>Room Number</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation : ${guestReservations}">
+        <td th:text="${reservation.id}"></td>
+        <td th:text="${reservation.passport_number}"></td>
+        <td th:text="${reservation.num_of_people}"></td>
+        <td th:text="${reservation.name}"></td>
+        <td th:text="${reservation.id_bill}"></td>
+        <td th:text="${reservation.room_number}"></td>
+        <td th:text="${reservation.check_in}"></td>
+        <td th:text="${reservation.check_out}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/guests/futureRes">Future Reservations</a>
+
+</body>
+</html>

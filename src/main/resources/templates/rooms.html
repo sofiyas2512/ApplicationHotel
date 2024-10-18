@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007acc; /* Dark blue color for table header */
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007acc; /* Dark blue color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Room Details</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id Hotel</th>
+        <th>Room Number</th>
+        <th>Room Type</th>
+        <th>Price</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room: ${probno}">
+        <td th:text="${room.id_hotel}"></td>
+        <td th:text="${room.room_number}"></td>
+        <td th:text="${room.room_type}" ></td>
+        <td th:text="${room.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

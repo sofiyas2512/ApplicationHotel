@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cities</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background color */
+    margin: 20px;
+    text-align: center;
+    }
+
+    h1 {
+    color: #333;
+    }
+
+    table {
+    width: 50%; /* Make the table smaller */
+    margin: 20px auto;
+    border-collapse: collapse;
+    ;
+    }
+
+    th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    }
+
+    th {
+    background-color: dodgerblue; /* Green background color for table header */
+    color: white;
+    }
+
+    a {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: blue; /* Green background color for links */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    }
+
+    a:hover {
+    background-color: lightblue; /* Darker green background color on hover */
+    }
+    </style>
+</head>
+<body>
+<h1>Cities</h1>
+<table>
+    <thead>
+    <tr>
+        <th>City Name</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="city : ${citiesList}">
+        <td th:text="${city.name}"></td>
+
+    </tr>
+    </tbody>
+</table>
+<a href="/cities/add">Add a city</a>
+<a href="/hotels">View Hotels</a>
+</body>
+</html>

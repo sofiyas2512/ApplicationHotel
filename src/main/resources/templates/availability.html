@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Availability</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        label {
+            margin-right: 10px;
+            color: #007acc; /* Dark blue color for labels */
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #007acc; /* Dark blue color for input border */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007acc; /* Dark blue color for button */
+            color: #ffffff; /* White text color for button */
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007acc; /* Dark blue color for table header */
+            color: white;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007acc; /* Dark blue color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Available Hotels</h1>
+
+<!-- Filter form -->
+<form action="/availability" method="get">
+    <label for="hotelName">Hotel Name:</label>
+    <input type="text" id="hotelName" name="hotelName">
+
+    <button type="submit">Apply Filters</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Hotel Name</th>
+        <th>Room Type</th>
+        <th>Room Number</th>
+        <th>Price</th>
+        <th>Address</th>
+        <th>City Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over the list of hotel details and display them -->
+    <tr th:each="hotelDetails : ${hotelDetailsList}">
+        <td th:text="${hotelDetails.hotel_name}"></td>
+        <td th:text="${hotelDetails.room_type}"></td>
+        <td th:text="${hotelDetails.room_number}"></td>
+        <td th:text="${hotelDetails.price}"></td>
+        <td th:text="${hotelDetails.address}"></td>
+        <td th:text="${hotelDetails.city_name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

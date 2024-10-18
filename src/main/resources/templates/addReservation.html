@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Reservation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        form {
+            width: 38%;
+            margin: 20px auto; /* Center the form horizontally */
+            background-color: #ffffff; /* White background color for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #007acc; /* Dark blue color for labels */
+        }
+
+        input, select {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #007acc; /* Dark blue color for input border */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007acc; /* Dark blue color for submit button */
+            color: #ffffff; /* White text color for button */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Add Reservation</h1>
+
+<form th:method="post" th:action="@{/reservations/add}">
+    <div>
+        <label for="id_reservations">ID</label>
+        <input th:type="number" id="id_reservations" name="id_reservations" required>
+    </div>
+    <div>
+        <label for="num_of_people">Number of People</label>
+        <input type="number" id="num_of_people" name="num_of_people" required>
+    </div>
+    <div>
+        <label for="check_in">Check-In Date</label>
+        <input type="date" id="check_in" name="check_in" required>
+    </div>
+    <div>
+        <label for="check_out">Check-Out Date</label>
+        <input type="date" id="check_out" name="check_out" required>
+    </div>
+    <div>
+        <label for="id_guest">Guest id</label>
+        <input type="number" id="id_guest" name="id_guest" required>
+    </div>
+    <div>
+        <label for="id_bill">Bill id</label>
+        <input type="number" id="id_bill" name="id_bill" required>
+    </div>
+
+<!--    <div>-->
+<!--        <label for="id_hotel">Check-Out Date</label>-->
+<!--        <input type="number" id="id_hotel" name="id_hotel" required>-->
+<!--    </div>-->
+    <div>
+        <label for="room_number">Room Number</label>
+        <input type="number" id="room_number" name="room_number" required>
+    </div>
+
+    <!-- Other form fields for guest, bill, and room selection -->
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

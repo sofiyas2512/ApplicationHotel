@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add City</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0ebf5; /* Light blue background color */
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007acc; /* Blue color for heading */
+        }
+
+        form {
+            width: 50%; /* Adjust the form width */
+            margin: 20px auto; /* Center the form horizontally */
+            background-color: #ffffff; /* White background color for the form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #007acc; /* Blue color for labels */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #007acc; /* Blue color for input border */
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007acc; /* Blue color for button */
+            color: #ffffff; /* White text color for button */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005a91; /* Darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Add City</h1>
+
+<form th:method="post" th:action="@{/cities/add}">
+    <div>
+        <label for="id_city">City ID</label>
+        <input type="number" id="id_city" name="id_city" required>
+    </div>
+    <div>
+        <label for="name">City Name</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <button type="submit" href="/cities">Submit</button>
+</form>
+
+</body>
+</html>

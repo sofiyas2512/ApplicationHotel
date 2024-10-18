@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007acc; /* Dark blue color for table header */
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007acc; /* Dark blue color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Employee List</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>embg</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <!-- Add more columns as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${probno}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.embg}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.surname}"></td>
+        <td th:text="${employee.gender}"></td>
+        <td th:text="${employee.salary}"></td>
+        <!-- Add more cells for additional properties -->
+    </tr>
+    </tbody>
+
+</table>
+<a href="/employees/add">Add an employee</a>
+</body>
+</html>

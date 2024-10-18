@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotel Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Light blue background color */
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007acc; /* Dark blue color for heading */
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007acc; /* Dark blue color for table header */
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #007acc; /* Dark blue color for links */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #005a91; /* Slightly darker blue color on hover */
+        }
+
+        div {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Hotel Information</h1>
+<div th:if="${not #lists.isEmpty(hotelDetailsList)}">
+    <table>
+        <thead>
+        <tr>
+            <th>Hotel Name</th>
+            <th>Address</th>
+            <th>City Name</th>
+            <th>Room Type</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="hotelDetails : ${hotelDetailsList}">
+            <th:block th:if="${hotelDetails != null}">
+                <td th:if="${hotelDetails.hotel_name != null}" th:text="${hotelDetails.hotel_name}"></td>
+                <td th:if="${hotelDetails.address != null}" th:text="${hotelDetails.address}"></td>
+                <td th:if="${hotelDetails.city_name != null}" th:text="${hotelDetails.city_name}"></td>
+                <td th:if="${hotelDetails.room_type != null}" th:text="${hotelDetails.room_type}"></td>
+                <td th:if="${hotelDetails.price != null}" th:text="${hotelDetails.price}"></td>
+                <td>
+                    <a th:href="@{'/rooms?id_hotel=' + ${hotelDetails.hotel_id}}">View Rooms</a>
+                    <a th:href="@{'/employees?id_hotel=' + ${hotelDetails.hotel_id}}">Employees</a>
+                </td>
+            </th:block>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<a href="/hotels">Back to Hotel List</a>
+</body>
+</html>
+
